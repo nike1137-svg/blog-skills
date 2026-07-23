@@ -18,10 +18,11 @@
 
 ## 스킬이 그걸 어떻게 없앴나
 
-반복하던 설명을 7개의 스킬로 나눠, 이제는 **노트만 던지면** 블로그 양식 그대로 나온다.
+반복하던 설명을 8개의 스킬로 나눠, 이제는 **노트만 던지면** 블로그 양식 그대로 나온다.
 
 | 스킬 | 언제 쓰나 |
 |------|-----------|
+| [`lms-safe`](.claude/skills/lms-safe/SKILL.md) | LMS 노드 내용을 블로그로 옮길 때 저작권·게시 규칙 준수 (원문 복붙·조기 공개 방지, 자체 소화 재작성) — **가장 먼저 적용** |
 | [`blog-retro`](.claude/skills/blog-retro/SKILL.md) | 노트 → 회고 일지 한 편으로 변환 (핵심) |
 | [`term-card`](.claude/skills/term-card/SKILL.md) | 용어 → 정의/비유/예시 카드 |
 | [`jekyll-frontmatter`](.claude/skills/jekyll-frontmatter/SKILL.md) | 파일명 + front matter 자동 생성 |
@@ -35,6 +36,10 @@
 > **알아둘 점** — `jekyll-frontmatter`는 발행 시각을 **실제 현재보다 과거로** 잡는다.
 > Jekyll이 미래 날짜의 글을 빌드에서 제외해 사이트에 404가 나던 문제를 막기 위해서다.
 > (직접 겪고 고쳐서 스킬에 규칙으로 박아 둔 것 — 같은 실수가 반복되지 않게.)
+>
+> **저작권 가드** — `lms-safe`는 LMS(강의) 노드 내용을 그대로 옮기지 않게 막는다.
+> 원문 복붙·6어절 이상 연속 동일 표현·코드 그대로 게시·조기 공개를 걸러 내고, **자체 소화한 내용**으로만 쓰게 한다.
+> `blog-retro`·`term-card`·`draft-to-post`가 이 가드를 먼저 거치도록 연결돼 있다.
 
 ## 쓰는 법 (Claude Code 기준)
 

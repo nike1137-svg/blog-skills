@@ -18,7 +18,7 @@
 
 ## 스킬이 그걸 어떻게 없앴나
 
-반복하던 설명을 8개의 스킬로 나눠, 이제는 **노트만 던지면** 블로그 양식 그대로 나온다.
+반복하던 설명을 9개의 스킬로 나눠, 이제는 **노트만 던지면** 블로그 양식 그대로 나온다.
 
 | 스킬 | 언제 쓰나 |
 |------|-----------|
@@ -28,6 +28,7 @@
 | [`jekyll-frontmatter`](.claude/skills/jekyll-frontmatter/SKILL.md) | 파일명 + front matter 자동 생성 |
 | [`analogy-maker`](.claude/skills/analogy-maker/SKILL.md) | 기술 개념 → 일상 비유 |
 | [`my-role`](.claude/skills/my-role/SKILL.md) | 'AI가 한 일 vs 내 판단' 마무리 |
+| [`concept-bridge`](.claude/skills/concept-bridge/SKILL.md) | 실습 글에 실제로 적용한 개념 글을 "관련 개념" 링크로 연결 |
 | [`tone-keeper`](.claude/skills/tone-keeper/SKILL.md) | 초안을 내 말투로 교정 |
 | [`draft-to-post`](.claude/skills/draft-to-post/SKILL.md) | 위 스킬을 엮는 원스톱 파이프라인 |
 
@@ -40,6 +41,9 @@
 > **저작권 가드** — `lms-safe`는 LMS(강의) 노드 내용을 그대로 옮기지 않게 막는다.
 > 원문 복붙·6어절 이상 연속 동일 표현·코드 그대로 게시·조기 공개를 걸러 내고, **자체 소화한 내용**으로만 쓰게 한다.
 > `blog-retro`·`term-card`·`draft-to-post`가 이 가드를 먼저 거치도록 연결돼 있다.
+>
+> **개념↔실습 다리** — `concept-bridge`는 배운 개념이 실전에서 어떻게 쓰였는지를 글 구조에 남긴다.
+> 실습 글에 그 실습이 실제로 적용한 개념 글을 짧은 링크 박스로 연결해서, "그때 배운 게 여기서 이렇게 쓰였다"가 나중에 다시 봐도 한눈에 보이게 한다.
 
 ## 쓰는 법 (Claude Code 기준)
 

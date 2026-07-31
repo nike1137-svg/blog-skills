@@ -1,6 +1,6 @@
 # blog-skills — 내 학습 일지 블로그를 위한 스킬 세트
 
-조경호의 학습 일지 블로그([nike1137-svg.github.io/blog](https://nike1137-svg.github.io/blog/))에
+Marcus의 학습 일지 블로그에
 회고 글을 올릴 때 **매번 AI에게 똑같이 설명하던 일**을 스킬로 굳혔다.
 
 ## 무슨 불편이 있었나

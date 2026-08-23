@@ -20,6 +20,31 @@ Marcus의 학습 일지 블로그에
 
 반복하던 설명을 10개의 스킬로 나눠, 이제는 **노트만 던지면** 블로그 양식 그대로 나온다.
 
+## Claude 홈(웹·데스크톱 앱)에서 쓸 때
+
+홈 세션은 **로컬 스킬 파일을 못 읽는다.** 저장소를 통째로 주면 파일을 하나씩
+열어야 하고, 일부만 읽고 「확인했다」고 할 수 있다. 그래서 전문을 한 파일로
+합쳐 뒀다 — [`ALL-SKILLS.md`](ALL-SKILLS.md).
+
+세션에 **이 한 줄만** 붙여넣는다.
+
+```
+https://raw.githubusercontent.com/nike1137-svg/blog-skills/main/ALL-SKILLS.md
+읽고 그 규칙대로 오늘 작업을 블로그 글로 정리해줘
+```
+
+> ⚠️ `ALL-SKILLS.md` 는 **자동 생성 파일이다.** 직접 고치지 않는다.
+> 스킬을 고쳤으면 `bash tools/build-all.sh` 를 돌려 다시 만든 뒤 함께 커밋한다.
+
+**Claude Code** 는 이 파일이 필요 없다. `~/.claude/skills` 가 원본을 직접 읽는다.
+
+| 환경 | 읽는 곳 |
+|---|---|
+| Claude Code (노트북 · 데스크탑) | `~/.claude/skills/` — 원본 |
+| Claude 홈 (웹 · 데스크톱 앱) | `ALL-SKILLS.md` — 합본 |
+
+---
+
 | 스킬 | 언제 쓰나 |
 |------|-----------|
 | [`lms-safe`](.claude/skills/lms-safe/SKILL.md) | LMS 노드 내용을 블로그로 옮길 때 저작권·게시 규칙 준수 (원문 복붙·조기 공개 방지, 자체 소화 재작성) — **가장 먼저 적용** |

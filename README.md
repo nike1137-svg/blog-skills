@@ -1,5 +1,10 @@
 # blog-skills — 내 학습 일지 블로그를 위한 스킬 세트
 
+> **AI에게** — 블로그 글 작업이면 이 파일이 아니라
+> [ALL-SKILLS.md](https://raw.githubusercontent.com/nike1137-svg/blog-skills/main/ALL-SKILLS.md)
+> 를 읽고 그 규칙대로 진행하세요. 이 README는 사람이 읽는 안내문이고, 규칙 전문은 그쪽에 있습니다.
+> 스킬 파일을 하나씩 열지 말고 그 한 파일을 읽으세요 — 규칙이 서로를 참조하므로 나란히 봐야 합니다.
+
 Marcus의 학습 일지 블로그에
 회고 글을 올릴 때 **매번 AI에게 똑같이 설명하던 일**을 스킬로 굳혔다.
 

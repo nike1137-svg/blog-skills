@@ -4,7 +4,7 @@
 > 원본은 `.claude/skills/<이름>/SKILL.md` 이고,
 > 고친 뒤 `bash tools/build-all.sh` 를 돌리면 이 파일이 갱신됩니다.
 
-생성: 2026-09-05 09:30 · 스킬 10개
+생성: 2026-09-07 22:25 · 스킬 11개
 
 ## AI 에게
 
@@ -23,6 +23,7 @@
 - [`jekyll-frontmatter`](#jekyll-frontmatter)
 - [`lms-safe`](#lms-safe)
 - [`my-role`](#my-role)
+- [`orchestration`](#orchestration)
 - [`readme-standard-check`](#readme-standard-check)
 - [`term-card`](#term-card)
 - [`tone-keeper`](#tone-keeper)
@@ -611,6 +612,99 @@ description: 회고 글 마무리로 'AI가 한 일 vs 내가 판단한 일'을 
 
 ---
 
+<a id="orchestration"></a>
+
+# 스킬: orchestration
+
+---
+name: orchestration
+description: >-
+  Use Orca orchestration for structured multi-agent coordination: threaded
+  messages, blocking ask/reply flows, task dispatch, worker_done/escalation
+  waits, task DAGs, decision gates, or coordinator loops. Use `orca-cli`
+  instead for full ownership handoffs, including requests phrased as "hand
+  off", "handoff", "handover", "give this to another agent", or "another
+  worktree" when the user did not explicitly ask to supervise, monitor, wait
+  for results, or coordinate a DAG. Use `orca-cli` for terminal control,
+  lightweight terminal prompts, shell commands, Orca worktree management,
+  reading or waiting on terminals, and the Orca embedded browser. Use Computer
+  Use for external browser windows, webviews, Orca app UI, or desktop UI
+  outside Orca's embedded browser only when the task requires OS/window-level
+  control such as focus, menus, dialogs, coordinates, or screenshots. Use
+  `orca-cli` for Orca's embedded pages and a page-automation tool such as
+  Playwright or CDP for external pages.
+---
+
+# Orca Orchestration
+
+This file is a discovery stub, not the usage guide. The full, version-matched Orca
+orchestration reference is served by the `orca` binary itself — kept out of this file on
+purpose so it can never drift from the binary that will actually run your commands.
+
+Engage Orca orchestration whenever you need structured multi-agent coordination: threaded
+messages, blocking ask/reply flows, task dispatch, worker_done/escalation waits, task DAGs,
+decision gates, coordinator loops, or decomposing work across agents. Use the orca-cli skill
+instead for full ownership handoffs ("hand off", "handoff", "handover", "give this to
+another agent", "another worktree") when the user did not ask to supervise, monitor, wait
+for results, or coordinate a DAG — and for ordinary terminal control, shell commands,
+worktree management, and the built-in browser. Coordination requires real Orca runtime
+state; never substitute a non-Orca subagent tool.
+
+## Resolve the CLI for this session
+
+Choose the executable once and reuse it for every later command:
+
+- If the `ORCA_CLI_COMMAND` environment variable is set, use its value. Orca exports this
+  for managed WSL sessions.
+- Otherwise, in a dev checkout whose session exposes `ORCA_DEV_REPO_ROOT`, use `orca-dev`.
+- Otherwise, on Linux outside an Orca-managed terminal, use `orca-ide`. Never run bare
+  `orca` there — outside Orca's terminals it normally resolves to the
+  GNOME Orca screen reader (`/usr/bin/orca`) and starts speech on the user's machine.
+- Otherwise, use `orca`.
+
+Below, `ORCA` is a placeholder for the executable you resolved. Substitute it before
+running anything; do not create a shell variable or run `ORCA` literally. This works the
+same way in POSIX shells, PowerShell, and cmd.exe.
+
+If the selected executable cannot run, report its exact error and stop. Do not fall through
+to another executable, which could silently target a different Orca build.
+
+## Load the full guide before running Orca commands
+
+```text
+ORCA skills get orchestration
+```
+
+That prints the complete, version-matched guide for the exact binary that will handle your
+next commands — task creation and dispatch, injected lifecycle preambles, worker_done
+authority, decision gates, and coordinator loops. Read it first, then run the specific
+command you need.
+
+Don't guess subcommands or flags from memory or from a cached copy of this stub. They
+change between Orca releases, and this file deliberately no longer lists them. Confirm the
+app is up with `ORCA status --json` (start it with `ORCA open --json` if needed), and
+prefer `--json` for agent-driven calls.
+
+## If an older Orca does not recognize `skills get`
+
+Use this fallback only when the selected binary explicitly reports that `skills get` is an
+unknown command. Another failure is not proof of an older binary; report it rather than
+guessing or changing executables. For a confirmed pre-guide binary, use only this bounded,
+read-only bootstrap to orient. Do not dead-end and do not invent commands:
+
+```text
+ORCA status --json
+ORCA orchestration task-list --json
+ORCA terminal list --json
+```
+
+Then tell the user that updating Orca restores the full, version-matched guide via
+`ORCA skills get orchestration`. Beyond these commands, ask the user rather than guessing a
+command surface this older binary may not support.
+
+
+---
+
 <a id="readme-standard-check"></a>
 
 # 스킬: readme-standard-check
@@ -778,6 +872,24 @@ description: 새로 배운 기술 용어를 조경호 블로그의 '용어정리
   지나가듯 쓴 것은 정리한 게 아니므로 세지 않는다.
 - 언제 정리했는지 한 조각 덧붙인다(예: "7월에 정리했다").
 - **표시만 하고 정의는 새로 쓴다.** 이전 글 문장을 복사하지 않는다.
+
+### 다섯 번을 넘기면 횟수를 적지 않는다 (2026-09-07 추가)
+
+**표시는 두 번째~네 번째까지만 붙인다.** 다섯 번째 이상이면 **카드는 싣고
+「다시 정리」 줄은 쓰지 않는다.**
+
+이유 — 두 번째·세 번째는 **어디로 옮겨 물었는지가 보인다.** 7월엔 CLI(조작
+방식)를, 9월엔 CLI 툴(그 방식으로 도는 프로그램)을 물은 것처럼 층위가 한 칸
+움직인 게 드러난다. 그런데 다섯 번을 넘어가면 숫자가 **"자주 나온다"는 뜻밖에
+없다.** 정보가 아니라 집계가 된다.
+
+- 세어는 본다. 다섯 번을 넘긴 것을 **아는 것**과 글에 **싣는 것**은 다르다.
+- 마무리에서 "몇 개가 두 번째 이상인가"는 계속 쓴다. 다만 다섯 번을 넘긴
+  낱말은 "횟수를 적지 않았다"고만 밝히고 숫자를 쓰지 않는다.
+- 그 낱말을 **왜 여러 번 물었는지 지어내지 않는다.** 위 「반복의 이유를
+  지어내지 않는다」가 그대로 적용된다.
+
+2026-09-07 글에서 GenAI가 다섯 번을 넘겨 처음 적용했다.
 
 ### ⚠️ 반복의 이유를 지어내지 않는다 (2026-09-05 개정)
 
